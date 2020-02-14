@@ -6,11 +6,11 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: './bundle.[hash].js',
+    filename: './dist/bundle.[hash].js',
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js', 'jsx']
   },
   devServer: {
     port: 7890,
@@ -29,23 +29,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts(x?)$/,
+        test: /\.(js|ts)(x?)$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'ts-loader'
-          }
-        ]
+        use: [{ loader: 'ts-loader' }]
       },
-      {
-        test: /.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true
-          }
-        }
+      { 
+        enforce: 'pre', 
+        test: /\.js$/, 
+        exclude: /node_modules/, 
+        loader: 'source-map-loader' 
       },
       {
         test: /.css$/,
@@ -81,5 +73,10 @@ module.exports = {
         },
       }
     ]
-  }
+  },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM',
+  },
+  devtool: 'source-map',
 };
