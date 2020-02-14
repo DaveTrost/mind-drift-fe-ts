@@ -1,15 +1,15 @@
-import React from 'react';
-import styles from './AboutUs.css';
-import NavBar from './NavBar';
+import * as React from 'react';
 import { useSpring, animated } from 'react-spring';
-import brownFlowerIcon from '../assets/brownFlowerIcon.png';
-import abbeyImg from '../assets/ABBEY.jpg';
-import daveImg from '../assets/DAVE.png';
-import maeveImg from '../assets/MAEVE.jpg';
+import NavBar from './NavBar';
+
+const styles = require('./AboutUs.css');
+const brownFlowerIcon = require('../assets/brownFlowerIcon.png');
+const abbeyImg = require('../assets/ABBEY.jpg');
+const daveImg = require('../assets/DAVE.png');
+const maeveImg = require('../assets/MAEVE.jpg');
 
 const AboutUs = () => {
-
-  const props = useSpring({
+  const spring = useSpring({
     opacity: 1,
     from: { opacity: 0.1 },
     config: { duration: 1500 },
@@ -20,7 +20,7 @@ const AboutUs = () => {
       <NavBar />
       <animated.div
         className={styles.logo}
-        style={props}>
+        style={spring}>
         <img src={brownFlowerIcon} />
         <p className={styles.blurb}>mindDrift is a mindful breathing app, aimed to make your experience seamless and convenient.</p>
         <section className={styles.AboutUs}>

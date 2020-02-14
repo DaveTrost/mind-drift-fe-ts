@@ -1,12 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-// import HOMEicon from '../assets/HOMEicon.png';
-// import PROFILEicon from '../assets/PROFILEicon.png';
-// import SETTINGSicon from '../assets/SETTINGSicon.png';
-// import FLOWERicon from '../assets/FLOWERicon.png';
-// import styles from './NavBar.css';
-
 const { useLogout } = require('../utils/WithSession');
 const styles = require('./NavBar.css');
 const HOMEicon = require('../assets/HOMEicon.png');
