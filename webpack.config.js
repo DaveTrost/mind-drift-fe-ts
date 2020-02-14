@@ -9,6 +9,9 @@ module.exports = {
     filename: './bundle.[hash].js',
     publicPath: '/'
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
+  },
   devServer: {
     port: 7890,
     historyApiFallback: true
@@ -25,6 +28,15 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader'
+          }
+        ]
+      },
       {
         test: /.js$/,
         exclude: /node_modules/,
