@@ -24,7 +24,11 @@ exports[`About Us component renders 1`] = `
     }
   >
     <img
-      src="test-file-stub"
+      src={
+        Object {
+          "default": "test-file-stub",
+        }
+      }
     />
     <p
       className="blurb"
@@ -40,7 +44,11 @@ exports[`About Us component renders 1`] = `
       <div>
         <img
           alt="Abbey Masters"
-          src="test-file-stub"
+          src={
+            Object {
+              "default": "test-file-stub",
+            }
+          }
         />
         <h2>
           Abbey Masters
@@ -52,7 +60,11 @@ exports[`About Us component renders 1`] = `
       <div>
         <img
           alt="Dave Trost"
-          src="test-file-stub"
+          src={
+            Object {
+              "default": "test-file-stub",
+            }
+          }
         />
         <h2>
           Dave Trost
@@ -64,7 +76,11 @@ exports[`About Us component renders 1`] = `
       <div>
         <img
           alt="Maeve Griffin"
-          src="test-file-stub"
+          src={
+            Object {
+              "default": "test-file-stub",
+            }
+          }
         />
         <h2>
           Maeve Griffin

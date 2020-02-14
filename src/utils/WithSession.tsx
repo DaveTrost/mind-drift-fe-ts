@@ -1,15 +1,19 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import * as React from 'react';
+import { createContext, useContext, useState, useEffect, FunctionComponent } from 'react';
 import { useHistory } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { StyledFirebaseAuth } from 'react-firebaseui';
-import firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import Loading from '../components/Loading';
-import logo from '../assets/mindDriftIcon.png';
-import styles from './WithSession.css';
 
+const Loading = require('../components/Loading');
+const styles = require('./WithSession.css');
+const logo = require('../assets/mindDriftIcon.png');
 
-const AuthorizeContext = createContext();
+const AuthorizeContext = createContext({
+  user: 'default', 
+  loading: false, 
+  isAuthenticated: false
+});
 
 const config = {
   apiKey: 'AIzaSyAyHM340UBSXgbWWGa8TMDOuRF07dCBv4c',
@@ -35,7 +39,7 @@ const uiConfig = {
   }
 };
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider: FunctionComponent = ({ children }) => {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -59,10 +63,6 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-
-AuthProvider.propTypes = {
-  children: PropTypes.node.isRequired
-};
 
 export const useSession = () => {
   return useContext(AuthorizeContext);
